@@ -1,0 +1,103 @@
+.div-hero {
+    width: 15%;
+    height: 100vh;
+    background-color: #CEF3FF;
+    display: inline-block;
+    /* float: left; */
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#hero-logo-txt {
+    margin-top: 40px;
+    text-align: center;
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 61px;
+    color: #0884FF;
+}
+
+#hero-dash {
+    padding: 0px;
+}
+
+#hero-dash-logo {
+    width: 20px;
+    height: 24px;
+    margin-top: 40px;
+    display: inline-block;
+    background-image: url("../img/Vector.png");
+    background-repeat: no-repeat;
+    background-position-x: left;
+}
+
+#hero-dash-text {
+    vertical-align: super;
+    margin-left: 5px;
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.hero-cont {
+    background-color: #2DA5FC;
+    border-radius: 6px;
+    height: 50px;
+    vertical-align: middle;
+    padding-block-start: 15px;
+    margin-top: 20px;
+}
+
+#hero-contact-logo {
+    width: 20px;
+    height: 24px;
+    display: inline-block;
+    background-image: url("../img/vect_cont.png");
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center;
+}
+
+#hero-contact-txt {
+    margin-left: 5px;
+    vertical-align: super;
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.logout {
+    position: absolute;
+    bottom: 0px;
+    height: 7%;
+    text-align: center;
+    padding: 15px 30px;
+}
+
+#hero-logout-logo {
+    
+    width: 20px;
+    height: 24px;
+    display: inline-block;
+    background-image: url("../img/logout.png");
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center;
+}
+
+#hero-logout-txt {
+    vertical-align: super;
+    margin-left: 5px;
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+}

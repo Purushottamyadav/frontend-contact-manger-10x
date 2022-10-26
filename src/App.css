@@ -1,5 +1,6 @@
-.App {
-  text-align: center;
+#body-right {
+  display: inline-block;
+  /* position: absolute; */
 }
 
 .App-logo {

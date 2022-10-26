@@ -1,0 +1,73 @@
+.div-header{
+    position: absolute;
+    width: 85%;
+    display: inline-block;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #EAEAEA;
+    vertical-align: sub;
+}
+#header-txt-left{
+    display: inline-block;
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 49px;
+    color: #454545;
+    opacity: 0.8;
+    margin-block: 0px;
+}
+#user-details{
+    float: right;
+    width: max-content;
+    box-sizing: border-box;
+}
+#prof-img{
+    /* display: inline-block; */
+    float: left;
+    width: 44px;
+    height: 44px;
+    background-image: url("../img/profilelogo.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-color: #C4C4C4;
+    border-radius: 50px;
+    border:1px solid rgb(234, 227, 227);
+}
+#user-info{
+    float: right;
+    margin-left: 5px;
+}
+#username{
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    opacity: 0.8;
+}
+#role{
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+    opacity: 0.7;
+}
+#input-box{
+    width: 300px;
+    margin-left: 300px;
+    background: #F2F2F2;
+    border-radius: 6px;
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: rgba(0, 0, 0, 0.8);
+    opacity: 0.5;
+}
