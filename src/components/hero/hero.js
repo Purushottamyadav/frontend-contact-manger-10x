@@ -1,7 +1,8 @@
 import "./hero.css";
+import {useNavigate} from "react-router-dom"
 
 export const Hero = () => {
-
+const navigate = useNavigate();
     return (
         <div className="div-hero">
             <div id="hero-logo-txt">Logo</div>
@@ -16,7 +17,10 @@ export const Hero = () => {
             <span id="hero-contact-txt">Total Contacts</span>
                 </div>
 
-            <div className="logout">
+            <div className="logout" onClick={()=>{
+                window.localStorage.removeItem("token");
+                navigate("/")
+                }}>
                 <div id="hero-logout-logo"></div>
                 <span id="hero-logout-txt">Logout</span>
             </div>

@@ -1,0 +1,33 @@
+#drag-drop-box{
+    height: 180px;
+    width: 200px;
+    border: 1px dashed #171817;
+    position: absolute;
+    left: 45vw;
+    top: 36vh;
+    border-radius:8px;
+    background-color: rgb(169, 238, 155);
+}
+#pop-div{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#pop-div>button{
+    background-color:#c3dcf5 ;
+    height:24px;
+    width: 64px;
+    margin: 0px;
+    
+}
+#pop-div>p{
+    margin: 0px;
+    position: relative;
+    bottom:10px;
+}
+#pop-div>i{
+color: #313233;
+position: relative;
+
+}

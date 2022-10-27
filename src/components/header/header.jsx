@@ -2,6 +2,9 @@ import { useState } from "react";
 import "./header.css";
 import { updateSearch } from "../redux/reducer";
 import { connect } from "react-redux";
+import jwt_decode from "jwt-decode";
+import { getUser } from "../services/httpServices";
+import { useEffect } from "react";
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -11,8 +14,15 @@ const mapDispatchToProps = (dispatch) => {
 const Header =(props)=> {
 
     const [state,setState] = useState("");
+    const [mailid,setid] = useState("");
+    const token_id =jwt_decode(window.localStorage.getItem('token')).id;
 
-console.log(state);
+useEffect(()=>{
+    getUser(token_id).then((res)=>{
+        setid(res.data.userdata);
+    }) 
+})
+
 
     return(
         <div  className="div-header">
@@ -24,7 +34,7 @@ console.log(state);
             <div id="user-details">
                 <div id="prof-img"></div>
                 <div id="user-info">
-                <div id="username">Loreum Ipsum</div>
+                <div id="username">{mailid.email}</div>
                 <div id="role">user</div>
                 </div>
                

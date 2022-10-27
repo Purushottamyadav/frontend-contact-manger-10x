@@ -3,6 +3,9 @@ import { getContacts } from "../services/httpServices";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
+import PopUp from "../pupup/popup";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const mapStateToProps = (state) => {
     return {
@@ -13,6 +16,13 @@ const mapStateToProps = (state) => {
 const Contact = (props) => {
     const [state, setState] = useState([]);
     const [state1, setState1] = useState([]);
+    const [popup,setpopup]= useState(false);
+    const navigate = useNavigate();
+    const config = {
+        headers: {
+          Authorization: window.localStorage.getItem("token"),
+        },
+      };
 
     useEffect(() => {
         getContacts().then(res => {
@@ -24,7 +34,19 @@ const Contact = (props) => {
         console.log("state1", state1);
     }, [props.search])
 
+    const todelete=(e,id)=>{
+        e.preventDefault();
+     axios.delete(`http://localhost:8000/delete/${id}`,config)
+        .then((res)=>{
+            document.location.reload();
+            navigate("/homePage");
+        })
+        .catch(err=>{console.log(err)})
+    }
     return (
+        <>
+        <PopUp show={popup} close={()=>setpopup(false)}/>
+       
         <span id="body-contact">
             <div id="body-contact-header">
                 <div id="calender">
@@ -41,12 +63,12 @@ const Contact = (props) => {
                     <span>Export</span>
                 </span>
 
-                <span id="import">
+                <span id="import" onClick={()=>setpopup(true)}>
                     <span id="import-logo"></span>
                     <span>Import</span>
                 </span>
 
-                <span id="delete">
+                <span id="delete-span">
                     <span id="delete-logo"></span>
                     <span>Delete</span>
                 </span>
@@ -88,7 +110,7 @@ const Contact = (props) => {
                         {
                             state.map((ele => {
                                 return (
-                                    <tr>
+                                    <tr key={ele._id}>
                                         <td>
                     <input id="check-box" type="checkbox"/>
 
@@ -111,6 +133,12 @@ const Contact = (props) => {
                                         </td>
                                         <td>
                                             {ele.country}
+                                        </td>
+                                        <td>
+                                        <div className="content">
+                                        <button id="contact-edit-btn"><i id="edit" className="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button id="contact-delete-btn" onClick={(e) => todelete(e,ele._id)}><i id="delete" className="fa fa-trash-o" aria-hidden="true"></i></button>
+                                        </div>
                                         </td>
                                     </tr>
                                 )
@@ -128,7 +156,7 @@ const Contact = (props) => {
                             // })
                             state1.map((ele => {
                                 return (
-                                    <tr>
+                                    <tr key={ele._id}>
                                         <td>
                     <input id="check-box" type="checkbox"/>
                                             {ele.name}
@@ -151,6 +179,12 @@ const Contact = (props) => {
                                         <td>
                                             {ele.country}
                                         </td>
+                                        <td id="contact-box">
+                                        <div className="content">
+                                        <button id="contact-edit-btn"><i id="edit" className="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button id="contact-delete-btn" onClick={(e) => todelete(e,ele._id)}><i id="delete" className="fa fa-trash-o" aria-hidden="true"></i></button>
+                                        </div>
+                                        </td>
                                     </tr>
                                 )
                             }))
@@ -161,7 +195,7 @@ const Contact = (props) => {
             </table>
         </span>
 
-
+        </>
     );
 }
 

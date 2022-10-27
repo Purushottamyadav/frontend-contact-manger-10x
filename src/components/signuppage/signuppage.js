@@ -58,7 +58,7 @@ const Signuppage = ()=>{
    <br/>
    <input type="text"  name='password' value={password}  onChange={(e)=>setPassword(e.target.value)} className='form-input' placeholder='password'/>
    <br/>
-   <input type="text" name='confirmpassword' value={confirmpassword}  onChange={(e)=>setConfirmpassword(e.target.value)} className='form-input' placeholder='confirmpassword'/>
+   <input type="text" name='confirmpassword' value={confirmpassword}  onChange={(e)=>setConfirmpassword(e.target.value)} Name='form-input' placeholder='confirmpassword'/>
    <br/>
    {password !== confirmpassword?<p>password are not matchng</p>:null}
    <br/>
