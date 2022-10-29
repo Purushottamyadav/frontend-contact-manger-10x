@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const apiURL = "http://localhost:8000";
+const apiURL = "https://contact-manager-backend-api.herokuapp.com";
 const token = window.localStorage.getItem("token")
 
-export const getContacts =async()=>{
+export async function getContacts (){
     return await axios.get(apiURL+"/contacts",{headers:{
         Authorization: token
     }});

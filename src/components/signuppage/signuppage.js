@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./signup.css";
 import ellipse from "../images/Ellipse.png";
 import ellipse2 from "../images/ellipse2.png";
-
+import group from "../images/group.png"
 
 
 const Signuppage = ()=>{
@@ -25,7 +25,7 @@ const Signuppage = ()=>{
         const confirmpassword = formdata.get("confirmpassword")
         
         
-      await  axios.post('http://localhost:8000/signup',{
+      await  axios.post('https://contact-manager-backend-api.herokuapp.com/signup',{
         email:email,
         password:password,
         confirmpassword:confirmpassword
@@ -49,25 +49,38 @@ const Signuppage = ()=>{
     }
     return(
         <>
+        <section id="header">
         <img src={ellipse} alt="img"/>
-        <div className='body'>
-        <div className='container'>
+        
+        </section>
+        {/* <div className='body'>
+        <div className='container'> */}
+        <section id="middel">
+        <img className='group-top' src={group} alt="img"/>
         <center>
         <form className='form' onSubmit={handleOnSubmit} >
         <input type="text"  name='email' value={email} onChange={(e)=>setEmail(e.target.value)} className='form-input' placeholder='email'/>
    <br/>
+   <br/>
    <input type="text"  name='password' value={password}  onChange={(e)=>setPassword(e.target.value)} className='form-input' placeholder='password'/>
    <br/>
-   <input type="text" name='confirmpassword' value={confirmpassword}  onChange={(e)=>setConfirmpassword(e.target.value)} Name='form-input' placeholder='confirmpassword'/>
+   <br/>
+   <input type="text" name='confirmpassword' value={confirmpassword}  onChange={(e)=>setConfirmpassword(e.target.value)} className='form-input' placeholder='confirmpassword'/>
+   <br/>
    <br/>
    {password !== confirmpassword?<p>password are not matchng</p>:null}
    <br/>
   <button  className='btn-btn'>Register</button>
         </form>
         </center>
-        </div>
-        </div>
+        <img className='group-bottom' src={group} alt="img"/>
+        </section>
+        {/* </div>
+        </div> */}
+        <section id="bottom-img">
+       
         <img className='image' src={ellipse2} alt="img"/>
+        </section>
         </>
     )
 

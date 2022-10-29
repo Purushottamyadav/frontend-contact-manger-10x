@@ -20,7 +20,7 @@ const navigate = useNavigate();
         // console.log("contactData++", ContactsData);
         ContactsData.map(async (ele) => {
             await axios
-                .post("http://localhost:8000/addContact", ele, config)
+                .post("https://contact-manager-backend-api.herokuapp.com/addContact", ele, config)
 
                 .then((res) => console.log(res))
                 .catch((err) => {

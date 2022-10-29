@@ -135,6 +135,7 @@ thead{
     background: #B3DFFF;
     box-shadow: inset -1px -1px 20px rgb(254 134 39 / 10%), inset 1px 1px 20px rgb(254 134 39 / 10%);
     border-radius: 10px;
+    text-align: left;
 }
 tbody{
     font-family: 'Titillium Web';
@@ -146,7 +147,7 @@ line-height: 27px;
 color: #000000;
 
 opacity: 0.8;
-text-align: center;
+text-align: left;
 }
 
 #contact-box{
@@ -178,6 +179,10 @@ text-align: center;
     background-color:#b3f0ff ;
     height:20px;
     width: 20px;
+    align-items: center;
+    align-content: space-around;
+justify-content: space-evenly;
+    text-align: center;
 }
 #contact-delete-btn{
 background-color:#b3f0ff;
@@ -188,4 +193,28 @@ left:10px
 }
 #contact-box:hover{
     background-color: darkcyan;
+}
+.mailid{
+    position: relative;
+}
+.mailid .tooltip{
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    left: 20px;
+    top: 25px;
+    /* padding: 5px 10px; */
+    position: absolute;
+    z-index: 1;
+}
+
+.mailid:hover .tooltip{
+    visibility: visible;
+}
+#import:hover{
+    background-color: #97c3f0;
+    cursor: pointer;
 }

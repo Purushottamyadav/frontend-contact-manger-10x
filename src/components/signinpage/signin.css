@@ -1,12 +1,12 @@
-.body{
+/* .body{
     box-sizing: border-box;
     width: 100px;
     height: 100px;
    margin-bottom: 190px;
     margin-left: 400px;
     
-}
-.container {
+} */
+/* .container {
     height: 100px ;
     width: 500px ;
     display: inline-flex;
@@ -14,9 +14,9 @@
     border: 5px;
     margin-left: 35%;
     
-}
+} */
 h1{
-    margin-left: 110px;
+    margin-left: 700px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 30px;
 }
@@ -29,13 +29,15 @@ h1{
 }
 .image{
     margin-left: 85%;
+   padding-top: 20%;
 }
 .form-input{
     
-    width: 100%;
+    width: 190%;
     max-width: 525px;
     min-height: 50px;
     padding-top: 10px;
+    margin-left: 190px;
     padding-bottom: 5px;
     font-size: 0.9em;
     outline: none;
@@ -50,16 +52,20 @@ h1{
 
 }
 .btn-btn{
-    position: absolute;
+    
     background-color: aquamarine;
     color: #fff;
     border:none; 
     border-radius:10px; 
-    padding:15px;
+    margin-right:10%;
+    padding-right: 90px;
     min-height:30px; 
-    min-width: 190px;
-    margin-left:150px ;
+    min-width:190px;
+    margin-left: -200px;
+   
+   
 }
+
 .btn-btn:hover {
     background-color:#002ead;
     transition: 0.7s;
@@ -69,3 +75,26 @@ h1{
         outline-style:solid;
         box-shadow: 0 0 0 4px #5a01a7;
     }
+    #middel{
+        height:90vh;
+        width:70vw;
+        background-color: #CEF3FF;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        padding-bottom: 100px;
+        margin-bottom: 170px;
+        margin-bottom: 20%;
+        margin: 0px auto;
+    }
+#grop-top{
+    
+   padding-left:11%;
+   margin-bottom: 6%;
+}
+.group-top{
+    height:160px;
+    width:160px;
+    margin-top:18%;
+    padding-left:10%;
+}

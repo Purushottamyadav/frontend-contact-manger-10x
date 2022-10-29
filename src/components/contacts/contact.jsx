@@ -17,6 +17,7 @@ const Contact = (props) => {
     const [state, setState] = useState([]);
     const [state1, setState1] = useState([]);
     const [popup,setpopup]= useState(false);
+    const [selectoption,setSelectOption] = useState([]);
     const navigate = useNavigate();
     const config = {
         headers: {
@@ -25,18 +26,29 @@ const Contact = (props) => {
       };
 
     useEffect(() => {
-        getContacts().then(res => {
+        console.log(123);
+        // getContacts().then(res => {
+        //     console.log(res);
+        //     setState(res.data.records);
+        // }).catch((err)=>{
+        //     console.log(err);
+        // });
+        async function get(){
+        await axios.get("https://contact-manager-backend-api.herokuapp.com/contacts",config).then(res=>{
             setState(res.data.records);
         })
+    }
+    get();
             setState1(state.filter((ele) => {
                 return ele.email.toLowerCase().includes(props.search)
             }));
         console.log("state1", state1);
+        console.log(selectoption);
     }, [props.search])
 
     const todelete=(e,id)=>{
         e.preventDefault();
-     axios.delete(`http://localhost:8000/delete/${id}`,config)
+     axios.delete(`https://contact-manager-backend-api.herokuapp.com/delete/${id}`,config)
         .then((res)=>{
             document.location.reload();
             navigate("/homePage");
@@ -105,14 +117,15 @@ const Contact = (props) => {
                     </tr>
                 </thead>
                 {
-                    props.search.length === 0 &&
+                    props.search.length === 0 && state.length>0 &&
                     <tbody>
                         {
                             state.map((ele => {
                                 return (
                                     <tr key={ele._id}>
                                         <td>
-                    <input id="check-box" type="checkbox"/>
+                    <input name="getitem" value={ele._id} type="checkbox"
+                    onChange={(event)=>setSelectOption(...selectoption,(event.target.value))}/>
 
                                             {ele.name}
                                         </td>
@@ -125,8 +138,9 @@ const Contact = (props) => {
                                         <td>
                                             {ele.industry}
                                         </td>
-                                        <td>
+                                        <td className="mailid">
                                             {ele.email}
+                                            <span className="tooltip">{ele.email}</span>
                                         </td>
                                         <td>
                                             {ele.phone}
@@ -158,7 +172,8 @@ const Contact = (props) => {
                                 return (
                                     <tr key={ele._id}>
                                         <td>
-                    <input id="check-box" type="checkbox"/>
+                    <input name="getitem" value={ele._id} type="checkbox"
+                    onChange={(event)=>setSelectOption(...state,event.target.value)}/>
                                             {ele.name}
                                         </td>
                                         <td>
@@ -170,8 +185,9 @@ const Contact = (props) => {
                                         <td>
                                             {ele.industry}
                                         </td>
-                                        <td>
+                                        <td className="mailid">
                                             {ele.email}
+                                            <span className="tooltip">{ele.email}</span>
                                         </td>
                                         <td>
                                             {ele.phone}

@@ -78,7 +78,8 @@
     bottom: 0px;
     height: 7%;
     text-align: center;
-    padding: 15px 30px;
+    padding: 0px 30px;
+    margin-bottom: 30px;
 }
 
 #hero-logout-logo {
@@ -100,4 +101,9 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 27px;
+}
+
+.logout:hover{
+    background-color: #0884FF;
+    cursor: pointer;
 }
