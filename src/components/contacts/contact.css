@@ -206,7 +206,7 @@ left:10px
     border-radius: 6px;
     left: 20px;
     top: 25px;
-    /* padding: 5px 10px; */
+    padding: 5px 20px;
     position: absolute;
     z-index: 1;
 }

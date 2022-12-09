@@ -27,12 +27,6 @@ const Contact = (props) => {
 
     useEffect(() => {
         console.log(123);
-        // getContacts().then(res => {
-        //     console.log(res);
-        //     setState(res.data.records);
-        // }).catch((err)=>{
-        //     console.log(err);
-        // });
         async function get(){
         await axios.get("https://contact-manager-backend-api.herokuapp.com/contacts",config).then(res=>{
             setState(res.data.records);
@@ -43,8 +37,8 @@ const Contact = (props) => {
                 return ele.email.toLowerCase().includes(props.search)
             }));
         console.log("state1", state1);
-        console.log(selectoption);
-    }, [props.search])
+        console.log("selected",selectoption);
+    }, [props.search,selectoption])
 
     const todelete=(e,id)=>{
         e.preventDefault();
@@ -80,7 +74,11 @@ const Contact = (props) => {
                     <span>Import</span>
                 </span>
 
-                <span id="delete-span">
+                <span id="delete-span" onClick={(event)=>{
+                    selectoption.map(id=>{
+                        todelete(event,id);
+                    })
+                }}>
                     <span id="delete-logo"></span>
                     <span>Delete</span>
                 </span>
@@ -90,7 +88,9 @@ const Contact = (props) => {
                 <thead>
                     <tr>
                         <th>
-                    <input id="check-box" type="checkbox"/>
+                    <input id="check-box" onChange={()=>{
+                        document.getElementsByName("getitem")
+                    }} type="checkbox"/>
                             Name
                         </th>
                         <th>
@@ -125,7 +125,14 @@ const Contact = (props) => {
                                     <tr key={ele._id}>
                                         <td>
                     <input name="getitem" value={ele._id} type="checkbox"
-                    onChange={(event)=>setSelectOption(...selectoption,(event.target.value))}/>
+                    onChange={(event)=>{
+                        if(selectoption.includes(event.target.value)){
+                            setSelectOption(selectoption.filter((id)=>{
+                                return id!=event.target.value;
+                            }))
+                        }
+                        else
+                        setSelectOption([...selectoption,(event.target.value)])}}/>
 
                                             {ele.name}
                                         </td>
@@ -165,15 +172,19 @@ const Contact = (props) => {
                     props.search.length > 0 &&
                     <tbody>
                         {
-                            // state.filter((ele)=>{
-                            //     return ele.email.toLowerCase().includes(props.search)
-                            // })
                             state1.map((ele => {
                                 return (
                                     <tr key={ele._id}>
                                         <td>
                     <input name="getitem" value={ele._id} type="checkbox"
-                    onChange={(event)=>setSelectOption(...state,event.target.value)}/>
+                    onChange={(event)=>{
+                        if(selectoption.includes(event.target.value)){
+                            setSelectOption(selectoption.filter((id)=>{
+                                return id!=event.target.value;
+                            }))
+                        }
+                        else
+                            setSelectOption([...state,event.target.value])}}/>
                                             {ele.name}
                                         </td>
                                         <td>
