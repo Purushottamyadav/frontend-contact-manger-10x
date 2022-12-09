@@ -64,20 +64,24 @@ const navigate = useNavigate();
                         })
                         console.log(arr)
 
-                        arr.map(ele => {
-                           
+                        arr.map((ele) => {                        
+                    
                             if (!ele === undefined) {
                                 const obj = { "email": ele.email, "name": ele.name, "designation": ele.designation, "company": ele.company, "industry": ele.industry, "phone": ele.phone, "country": ele.country }
                                 setcontact((contact) => [...contact, obj])
                                 // postContacts(obj);
-                            }
-
+                        }
+                            
+                           
+                           
                         })
                         postContacts(arr);
                     })
 
                 }}
+                
             >
+            
                 <div id="pop-div">
                     <i className="fa fa-file fa-2x" aria-hidden="true"></i>
                     <h5>Import file!</h5>

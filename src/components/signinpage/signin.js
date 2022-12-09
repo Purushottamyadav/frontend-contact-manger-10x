@@ -3,11 +3,9 @@ import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./signin.css";
-import ellipse from "../images/Ellipse.png";
-import ellipse2 from "../images/ellipse2.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import group from "../images/group.png"
+
 
 function Signin() {
     const [email, setEmail] = useState("")
@@ -24,7 +22,7 @@ function Signin() {
         }).then((res) => {
             if (res.data.message === "success") {
                 window.localStorage.setItem("token", res.data.token)
-                alert("signin Sucessull!")
+                alert("SignIn Sucessfully!")
                 console.log(email);
                 navigate("/homePage");
 
@@ -40,7 +38,7 @@ function Signin() {
         })
             .catch(err => {
                 console.log(err)
-                alert("entervaliddetails")
+                alert("Enter Valid Details")
             })
 
     }
@@ -48,42 +46,25 @@ function Signin() {
     return (
 
         <>
-          <header id="header">
-            <img src={ellipse} alt="img" />
-            
-            </header>
           
-
-
-               <section id="middel">
-               <img className="group-top" src={group} alt="img" />
-               <center>
-                    <h1>Enter login credintials</h1>
-                    </center>
+          <div className="main-container">
+        <div className="signup-heading">
+        <h1>Enter login credintials</h1>
+        </div>
+        <div className="signin-container">
                     <form className='form' onSubmit={handleOnSubmit}>
-                        <input type="text" className='form-input' name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='email' />
-                        <br />
+                        <input type="text" className='form-input2' name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='email' required />
+                        <input type="text" className='form-input2' name='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' required/>
                         
-                        <br />
-                        <input type="text" className='form-input' name='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' />
-                        <br />
+                        <button className='btn-btn-signin' >Sign In</button>
                         
-                        <br />
-                        <center>
-
-                        <button className='btn-btn' >Signin</button>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <Link to='/Signuppage'><button className='btn-btn'>Signup</button></Link>
-                        </center>
-                        <img id="grop-top" src={group} alt="img" />
+                        <Link to='/Signuppage' id='link'><button className='btn-btn-signup'>Sign Up</button></Link>
+                       
+                       
                     </form>
-                    </section>
+                    </div>
 
-           
-            <img className='image' src={ellipse2} alt="img" />
+                    </div>
            
         </>
 
