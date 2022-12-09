@@ -22,7 +22,7 @@ const Signuppage = () => {
         const confirmpassword = formdata.get("confirmpassword")
 
 
-        await axios.post('https://contact-manager-backend-api.herokuapp.com/signup', {
+        await axios.post('https://contact-manager-zxwn.onrender.com/signup', {
             email: email,
             password: password,
             confirmpassword: confirmpassword

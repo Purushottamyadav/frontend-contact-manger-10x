@@ -36,7 +36,7 @@ const Contact = (props) => {
 
     const todelete = (e, id) => {
         e.preventDefault();
-        axios.delete(`http://localhost:8000/delete/${id}`, config)
+        axios.delete(`https://contact-manager-zxwn.onrender.com/delete/${id}`, config)
             .then((res) => {
                 document.location.reload();
                 navigate("/homePage");
