@@ -28,7 +28,8 @@ input[type=text]:focus {
   }
   .main-container{
     background-image: url("../img/background.png");
-    height: 500px;
+    height: 100vh;
+    box-sizing: border-box;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -41,6 +42,7 @@ input[type=text]:focus {
   }
   .signup-heading{
     display: flex;
+    margin-top: 100px;
     align-self: center;
     color: rgb(26, 26, 26);
     font-weight: bolder;
