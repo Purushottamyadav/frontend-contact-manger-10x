@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiURL = "https://contact-manager-zxwn.onrender.com";
+const apiURL = "https://contact-manager-ks62.onrender.com";
 const token = window.localStorage.getItem("token")
 
 export async function getContacts (){

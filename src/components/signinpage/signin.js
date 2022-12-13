@@ -16,7 +16,7 @@ function Signin() {
         const formdata = new FormData(e.target)
         const email = formdata.get("email")
         const password = formdata.get("password")
-        axios.post("https://contact-manager-zxwn.onrender.com/signin", {
+        axios.post("https://contact-manager-ks62.onrender.com/signin", {
             email: email,
             password: password
         }).then((res) => {

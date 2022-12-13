@@ -15,7 +15,7 @@ const Signuppage = () => {
 
     const handleOnSubmit = async (e) => {
         try{
-            await axios.post('http://localhost:8000/signup', {
+            await axios.post('https://contact-manager-ks62.onrender.com/signup', {
                 email: email,
                 password: password
             },{headers:{

@@ -20,7 +20,7 @@ const navigate = useNavigate();
         // console.log("contactData++", ContactsData);
         ContactsData.map(async (ele) => {
             await axios
-                .post("https://contact-manager-zxwn.onrender.com/addContact", ele, config)
+                .post("https://contact-manager-ks62.onrender.com/addContact", ele, config)
 
                 .then((res) => console.log(res))
                 .catch((err) => {
